@@ -1,7 +1,5 @@
 # fizzbuzz
-technical test
-
-Thanks for your interest in the role, please could you complete the following technical test spending no longer than forty minutes:Business Requirements
+Business Requirements
 
 1.    Take two integers between 1 and 100
 

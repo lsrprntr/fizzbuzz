@@ -30,14 +30,24 @@ def fizzbuzz(x:int, y:int):
     return 0
 
 if __name__ == "__main__":
-    
+    #Test cases
     result = sum([
-            fizzbuzz(1,100)
-            fizzbuzz(10,1),
+
+            fizzbuzz(1,100),
+
+            #Edge Cases
             fizzbuzz(0,1),
+            fizzbuzz(99,100),
+
+            #Reverse input
+            fizzbuzz(10,1),
+
+            #Out of range input
             fizzbuzz(-99,999),
             fizzbuzz(999,1000),
             fizzbuzz(-1000,-999),
+
+            #Type Error
             fizzbuzz("1","100"),
             fizzbuzz("a","b")]
         )

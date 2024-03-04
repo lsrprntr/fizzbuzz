@@ -1,4 +1,3 @@
-import testcases
 
 def fizzbuzz(x:int, y:int):
     '''

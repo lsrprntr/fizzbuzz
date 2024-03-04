@@ -18,7 +18,7 @@ def fizzbuzz(x:int, y:int):
 
     if x <= y:
         for i in range(x, y+1):
-            #Within printline
+            #Within print line
             print(i, end = " ")
             if i % 3 == 0:
                 print("fizz", end = "")
@@ -28,6 +28,7 @@ def fizzbuzz(x:int, y:int):
     else:
         fizzbuzz(y, x)
     return 0
+
 
 if __name__ == "__main__":
     #Test cases

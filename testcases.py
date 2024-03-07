@@ -12,7 +12,6 @@ cases = [
     ([1, 1], "1\n"),
     ([100, 100], "100\nbuzz\n"),
 
-
     #Out of bounds
     ([0, 3], "Error: Enter valid integers from 1-100\n"),
     ([1, 101], "Error: Enter valid integers from 1-100\n"),

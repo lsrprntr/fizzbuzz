@@ -17,12 +17,11 @@ def fizzbuzz(x:int, y:int):
 
     if x <= y:
         for i in range(x, y+1):
-            #Within print line
-            print(i, end = " ")
+            print(i)
             if i % 3 == 0:
-                print("fizz", end = "")
+                print("fizz")
             if i % 5 == 0:
-                print("buzz", end = "")
+                print("buzz")
             print()
     else:
         fizzbuzz(y, x)

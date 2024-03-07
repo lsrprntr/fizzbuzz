@@ -17,12 +17,12 @@ def fizzbuzz():
             print("Error: Enter valid integers from 1-100")
             #fizzbuzz()
             return
-    except: # Retry condition not integer
+    except (ValueError, TypeError): # Retry condition not integer
         print("Error: Enter valid integers from 1-100")
         #fizzbuzz()
         return
 
-    # For reverse count 
+    # For reverse count
     if x > y:
         y -= 2
         step = -1
@@ -37,7 +37,6 @@ def fizzbuzz():
         if i % 5 == 0:
             print("buzz")
     return
-    
 
 
 if __name__ == "__main__":

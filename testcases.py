@@ -1,5 +1,6 @@
-import fizzbuzz
+"""Import pytest and function"""
 import pytest
+import fizzbuzz
 
 #Test cases (Input of [x, y], Expected output)
 cases = [
@@ -34,19 +35,17 @@ cases = [
 ]
 
 @pytest.mark.parametrize("inp, expected", cases)
-def testfizzbuzz(monkeypatch,capsys, inp, expected):
+def testfizzbuzz(monkeypatch, capsys, inp, expected):
+    """Test fizzbuzz() with cases variable"""
+    
     # Monkeypatch input function to read from iterable
     responses = iter(inp)
     monkeypatch.setattr('builtins.input', lambda msg: next(responses))
 
     # Check function
-    assert fizzbuzz.fizzbuzz() == None
-    
+    assert fizzbuzz.fizzbuzz() is None
+
     # Check print outputs
     captured = capsys.readouterr()
     assert captured.out == expected
     return
-
-
-if __name__ == '__main__':
-    testfizzbuzz()

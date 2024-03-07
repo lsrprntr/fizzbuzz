@@ -21,13 +21,20 @@ cases = [
     #Wrong Types
     (["a", 2], "Error: Enter valid integers from 1-100\n"),
     ([1, "b"], "Error: Enter valid integers from 1-100\n"),
+    (["d", "b"], "Error: Enter valid integers from 1-100\n"),
+
 ]
 
 @pytest.mark.parametrize("inp, expected", cases)
 def testfizzbuzz(monkeypatch,capsys, inp, expected):
+    # Monkeypatch input function to read from iterable
     responses = iter(inp)
     monkeypatch.setattr('builtins.input', lambda msg: next(responses))
+
+    # Check function
     assert fizzbuzz.fizzbuzz() == None
+    
+    # Check print outputs
     captured = capsys.readouterr()
     assert captured.out == expected
     return

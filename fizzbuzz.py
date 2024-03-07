@@ -1,11 +1,11 @@
 def fizzbuzz():
     """Prints out every integer between x and y between 1 and 100
 
-    Asks user input twice for two integers
-
-    Loops and prints every integer from the first to the second integer
+    Asks user input twice for two integers but Returns when invalid inputs given
+    Loops and prints every integer from the first to the second integer;
     'fizz' if also divisible by 3; 
     'buzz' if also divisible by 5;
+
     """
     # Check input
     try:

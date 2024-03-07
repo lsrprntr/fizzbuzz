@@ -1,7 +1,7 @@
 # fizzbuzz
 ## Requirements to run
 - python3
-- pytest
+- pytest (for testing)
 
 ## To test
 - run 

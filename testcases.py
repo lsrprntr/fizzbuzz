@@ -9,10 +9,15 @@ cases = [
     ([90, 100], "90\nfizz\nbuzz\n91\n92\n93\nfizz\n94\n95\nbuzz\n96\nfizz\n97\n98\n99\nfizz\n100\nbuzz\n"),
     ([5, 1], "5\nbuzz\n4\n3\nfizz\n2\n1\n"),
     ([15, 10], "15\nfizz\nbuzz\n14\n13\n12\nfizz\n11\n10\nbuzz\n"),
+    ([1, 1], "1\n"),
+    ([100, 100], "100\nbuzz\n"),
+
 
     #Out of bounds
     ([0, 3], "Error: Enter valid integers from 1-100\n"),
     ([1, 101], "Error: Enter valid integers from 1-100\n"),
+    ([-1, 5], "Error: Enter valid integers from 1-100\n"),
+    ([1, -5], "Error: Enter valid integers from 1-100\n"),
 
     #String Integer
     ([1, "2"], "1\n2\n"),
@@ -22,6 +27,9 @@ cases = [
     (["a", 2], "Error: Enter valid integers from 1-100\n"),
     ([1, "b"], "Error: Enter valid integers from 1-100\n"),
     (["d", "b"], "Error: Enter valid integers from 1-100\n"),
+    ([None, None], "Error: Enter valid integers from 1-100\n"),
+    ([True, 2], "1\n2\n"),
+    ([False, 2], "Error: Enter valid integers from 1-100\n"),
 
 ]
 

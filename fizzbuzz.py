@@ -1,53 +1,42 @@
-
-def fizzbuzz(x:int, y:int):
+#As function
+def fizzbuzz():
     '''
     Prints out every integer between x and y between 1 and 100;
     'fizz' if also divisible by 3; 
     'buzz' if also divisible by 5;
     '''
-
-    #Requires number between 1-100
+    #Check input
     try:
-        x = max(1, int(x))
-        y = min(100, int(y))
-    except Exception as error:
-        print('Error: ' + repr(error))
-        return 1
+        x = int(input("Enter first number: "))
+        y = int(input("Enter second number: "))
 
+        #Retry condition not between 1-100
+        if x > 100 or y > 100 or x < 1 or y < 1:
+            print("Error: Enter valid integers from 1-100")
+            #fizzbuzz() #
+            return
+    except: #Retry condition not integer
+        print("Error: Enter valid integers from 1-100")
+        #fizzbuzz()
+        return
 
-    if x <= y:
-        for i in range(x, y+1):
-            print(i)
-            if i % 3 == 0:
-                print("fizz")
-            if i % 5 == 0:
-                print("buzz")
-            print()
+    #For reverse count 
+    if x > y:
+        y -= 2
+        step = -1
     else:
-        fizzbuzz(y, x)
-    return 0
+        step = 1
+
+    #Main loop
+    for i in range(x, y+1, step):
+        print(i)
+        if i % 3 == 0:
+            print("fizz")
+        if i % 5 == 0:
+            print("buzz")
+    return
+    
 
 
 if __name__ == "__main__":
-    #Test cases
-    result = sum([
-
-            fizzbuzz(1,100),
-
-            #Edge Cases
-            fizzbuzz(0,1),
-            fizzbuzz(99,100),
-
-            #Reverse input
-            fizzbuzz(10,1),
-
-            #Out of range input
-            fizzbuzz(-99,999),
-            fizzbuzz(999,1000),
-            fizzbuzz(-1000,-999),
-
-            #Type Error
-            fizzbuzz("1","100"),
-            fizzbuzz("a","b")]
-        )
-    print("Failed tests: ", result)
+    fizzbuzz()

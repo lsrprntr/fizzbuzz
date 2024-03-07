@@ -37,7 +37,7 @@ cases = [
 @pytest.mark.parametrize("inp, expected", cases)
 def testfizzbuzz(monkeypatch, capsys, inp, expected):
     """Test fizzbuzz() with cases variable"""
-    
+
     # Monkeypatch input function to read from iterable
     responses = iter(inp)
     monkeypatch.setattr('builtins.input', lambda msg: next(responses))

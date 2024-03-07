@@ -5,7 +5,7 @@
 
 ## To test
 - run 
-> pytest testcases.py
+> $ pytest testcases.py
 
 
 

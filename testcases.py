@@ -22,6 +22,8 @@ cases = [
     #String Integer
     ([1, "2"], "1\n2\n"),
     (["99", 97], "99\nfizz\n98\n97\n"),
+    (["1,0", "2,0"], "Error: Enter valid integers from 1-100\n"),
+
 
     #Wrong Types
     (["a", 2], "Error: Enter valid integers from 1-100\n"),
@@ -31,6 +33,7 @@ cases = [
     (["", ""], "Error: Enter valid integers from 1-100\n"),
     ([True, 2], "1\n2\n"), #Bool sideeffect
     ([False, 2], "Error: Enter valid integers from 1-100\n"),
+    ([1.2, 2.8], "1\n2\n"), #Int truncates float
 
 ]
 

@@ -32,7 +32,7 @@ cases = [
 
     ([None, None], "Error: Enter valid integers from 1-100\n"),
     (["", ""], "Error: Enter valid integers from 1-100\n"),
-    
+
     ([True, 2], "1\n2\n"), #Bool sideeffect
     ([False, 2], "Error: Enter valid integers from 1-100\n"),
 

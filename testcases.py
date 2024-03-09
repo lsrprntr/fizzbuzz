@@ -29,11 +29,19 @@ cases = [
     (["a", 2], "Error: Enter valid integers from 1-100\n"),
     ([1, "b"], "Error: Enter valid integers from 1-100\n"),
     (["d", "b"], "Error: Enter valid integers from 1-100\n"),
+
     ([None, None], "Error: Enter valid integers from 1-100\n"),
     (["", ""], "Error: Enter valid integers from 1-100\n"),
+    
     ([True, 2], "1\n2\n"), #Bool sideeffect
     ([False, 2], "Error: Enter valid integers from 1-100\n"),
+
     ([1.2, 2.8], "1\n2\n"), #Int truncates float
+    ([100.99, 99], "100\nbuzz\n99\nfizz\n"), #Int truncates float
+    ([1, 0.99], "Error: Enter valid integers from 1-100\n"), #Int truncates float
+
+
+
 
 ]
 

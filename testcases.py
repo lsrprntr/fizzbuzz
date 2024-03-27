@@ -1,34 +1,62 @@
+"""Import pytest and function"""
+import pytest
 import fizzbuzz
-import unittest
-import sys
-import io
 
-class TestFizzBuzz(unittest.TestCase):
-    def test_edgeCases(self):
-        fizzbuzz.fizzbuzz(1,3)
-        capture = sys.stdout
-        out = io.StringIO()
-        sys.stdout = out
-        output = out.getvalue().strip()
-        expected = '''
-        1
-        2
-        3 fizz
-        '''
-        assert output == expected      
-        #self.assertEqual(fizzbuzz.fizzbuzz(1,3), 0)
-        #self.assertEqual(fizzbuzz.fizzbuzz(99,100), 0)
+#Test cases (Input of [x, y], Expected output)
+cases = [
+
+    #Normal cases and reverse cases
+    ([1, 5], "1\n2\n3\nfizz\n4\n5\nbuzz\n"),
+    ([90, 100], "90\nfizz\nbuzz\n91\n92\n93\nfizz\n94\n95\nbuzz\n96\nfizz\n97\n98\n99\nfizz\n100\nbuzz\n"),
+    ([5, 1], "5\nbuzz\n4\n3\nfizz\n2\n1\n"),
+    ([15, 10], "15\nfizz\nbuzz\n14\n13\n12\nfizz\n11\n10\nbuzz\n"),
+    ([1, 1], "1\n"),
+    ([100, 100], "100\nbuzz\n"),
+
+    #Out of bounds
+    ([0, 3], "Error: Enter valid integers from 1-100\n"),
+    ([1, 101], "Error: Enter valid integers from 1-100\n"),
+    ([-1, 5], "Error: Enter valid integers from 1-100\n"),
+    ([1, -5], "Error: Enter valid integers from 1-100\n"),
+
+    #String Integer
+    ([1, "2"], "1\n2\n"),
+    (["99", 97], "99\nfizz\n98\n97\n"),
+    (["1,0", "2,0"], "Error: Enter valid integers from 1-100\n"),
 
 
-    def test_split(self):
-        s = 'hello world'
-        self.assertEqual(s.split(), ['hello', 'world'])
-        # check that s.split fails when the separator is not a string
-        with self.assertRaises(TypeError):
-            s.split(2)
+    #Wrong Types
+    (["a", 2], "Error: Enter valid integers from 1-100\n"),
+    ([1, "b"], "Error: Enter valid integers from 1-100\n"),
+    (["d", "b"], "Error: Enter valid integers from 1-100\n"),
 
-if __name__ == '__main__':
-    try:
-        unittest.main()
-    except:
-        pass
+    ([None, None], "Error: Enter valid integers from 1-100\n"),
+    (["", ""], "Error: Enter valid integers from 1-100\n"),
+
+    ([True, 2], "1\n2\n"), #Bool sideeffect
+    ([False, 2], "Error: Enter valid integers from 1-100\n"),
+
+    ([1.2, 2.8], "1\n2\n"), #Int truncates float
+    ([100.99, 99], "100\nbuzz\n99\nfizz\n"), #Int truncates float
+    ([1, 0.99], "Error: Enter valid integers from 1-100\n"), #Int truncates float
+
+
+
+
+]
+
+@pytest.mark.parametrize("inp, expected", cases)
+def testfizzbuzz(monkeypatch, capsys, inp, expected):
+    """Test fizzbuzz() with cases variable"""
+
+    # Monkeypatch input function to read from iterable
+    responses = iter(inp)
+    monkeypatch.setattr('builtins.input', lambda msg: next(responses))
+
+    # Check function
+    assert fizzbuzz.fizzbuzz() is None
+
+    # Check print outputs
+    captured = capsys.readouterr()
+    assert captured.out == expected
+    return

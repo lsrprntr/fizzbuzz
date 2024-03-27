@@ -1,4 +1,16 @@
 # fizzbuzz
+## Requirements to run
+- python3
+- pytest (for testing)
+
+## To test
+- run 
+> $ pytest testcases.py
+
+
+
+## Exercise Requirements
+
 Business Requirements
 
 1.    Take two integers between 1 and 100
@@ -10,8 +22,6 @@ Business Requirements
 4.    If the integer is divisible by 3 also print out ‘fizz’
 
 5.    If the integer is divisible by 5 also print out ‘buzz’
-
- 
 
 Development Requirements
 
